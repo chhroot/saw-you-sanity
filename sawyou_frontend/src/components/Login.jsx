@@ -14,6 +14,7 @@ const Login = () => {
     localStorage.setItem('user', JSON.stringify(response.profileObj));
     const decodedHeader = jwt_decode(response.credential);
     console.log(decodedHeader);
+    localStorage.setItem('user', JSON.stringify(decodedHeader));
     const { name, sub, picture } = decodedHeader;
     const doc = {
       _id: sub,
