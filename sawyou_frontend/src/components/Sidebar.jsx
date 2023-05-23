@@ -33,20 +33,25 @@ const Sidebar = ({ user, closeToggle }) => {
           <img src={logo} alt="logo" className="w-full" />
         </Link>
         <div className="flex flex-col gap-5">
-
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
+            className={({ isActive }) =>
+              isActive ? isActiveStyle : isNotActiveStyle
+            }
             onClick={handleCloseSidebar}
           >
             <RiHomeFill />
             Home
           </NavLink>
-          <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover cateogries</h3>
+          <h3 className="mt-2 px-5 text-base 2xl:text-xl">
+            Discover cateogries
+          </h3>
           {categories.slice(0, categories.length - 1).map((category) => (
             <NavLink
               to={`/category/${category.name}`}
-              className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
+              className={({ isActive }) =>
+                isActive ? isActiveStyle : isNotActiveStyle
+              }
               onClick={handleCloseSidebar}
               key={category.name}
             >
@@ -55,6 +60,29 @@ const Sidebar = ({ user, closeToggle }) => {
           ))}
         </div>
       </div>
+      {user && (
+        <div className="flex flex-col gap-3">
+          <div>
+            <h3 className="absolute px-5 text-gray-500">Logged in as</h3>
+          </div>
+
+          <div>
+            <Link
+              to={`user-profile/${user._id}`}
+              className="flex my-5 mb-3 gap-2 p-2 items-center bg-white rounded-lg shadow-lg mx-3"
+              onClick={handleCloseSidebar}
+            >
+              <img
+                src={user.image}
+                className="w-10 h-10 rounded-full"
+                alt="user-profile"
+              />
+              <p>{user.userName}</p>
+              <IoIosArrowForward />
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
