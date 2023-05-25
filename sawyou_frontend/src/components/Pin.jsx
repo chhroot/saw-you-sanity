@@ -31,7 +31,11 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
             postedBy: { _type: 'postedBy', _ref: user.sub },
           },
         ])
-        .commit();
+        .commit()
+        .then(() => {
+          window.location.reload();
+          setSavingPost(false);
+        });
     }
   };
 
@@ -76,7 +80,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
               ) : (
                 <button
                   onClick={(e) => {
-                    stopPropagation();
+                    e.stopPropagation();
                     savePin(_id);
                   }}
                   type="button"
