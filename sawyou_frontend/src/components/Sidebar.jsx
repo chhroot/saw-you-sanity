@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { RiHomeFill } from 'react-icons/ri';
 import { IoIosArrowForward } from 'react-icons/io';
+import { BsGithub } from 'react-icons/bs';
 
 import logo from '../assets/logo.png';
 import { categories } from '../utils/data';
@@ -57,9 +58,6 @@ const Sidebar = ({ user, closeToggle }) => {
       </div>
       {user && (
         <div className="flex flex-col gap-3">
-          <div>
-            <h3 className="absolute px-5 text-gray-500">Logged in as</h3>
-          </div>
 
           <div>
             <Link

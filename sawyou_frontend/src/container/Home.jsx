@@ -9,6 +9,7 @@ import { userQuery } from '../utils/data';
 import { client } from '../client';
 import logo from '../assets/logo.png';
 import { fetchUser } from '../utils/fetchUser';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);

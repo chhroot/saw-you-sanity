@@ -66,7 +66,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   href={`${image?.asset?.url}?dl=`}
                   download
                   onClick={(e) => e.stopPropagation()}
-                  className="bg-white h-9 w-9 rounded-full items-center flex justify-center text-xl opacity-75 hover:opacity-100 hover:shadow-md"
+                  className="bg-white h-9 w-9 rounded-full items-center flex justify-center text-xl opacity-75 hover:opacity- hover:bg-blackOverlay"
                 >
                   <FaDownload />
                 </a>
@@ -107,7 +107,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 </a>
               )}
 
-              {postedBy?._id === user?.googleId && (
+              {postedBy?._id === user?.sub && (
                 <button
                   type="button"
                   className="bg-white opacity-70 hover:opacity-100 text-dark px-4 py-4 rounded-full outline-none txt-base font-bold hover:shadow-md"
