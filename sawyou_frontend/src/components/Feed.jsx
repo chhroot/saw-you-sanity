@@ -5,6 +5,7 @@ import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 import { feedQuery, searchQuery } from '../utils/data';
+import Loading from './Loading';
 
 const Feed = () => {
   const [loading, setLoading] = useState(false);
@@ -30,6 +31,9 @@ const Feed = () => {
   }, [categoryId]);
 
   if (loading) return <Spinner message="Adding new ideas!" />;
+
+  if(!pins?.length) return <Loading message="No Pins Yet" />
+
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };
 
