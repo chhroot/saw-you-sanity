@@ -24,7 +24,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           <img
             src={user.image}
             alt="user"
-            className="w-14 h-12 rounded-full "
+            className="w-14 rounded-full"
           />
         </Link>
         <Link to='create-pin' className="bg-black text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center hover:bg-gray-700 ">
